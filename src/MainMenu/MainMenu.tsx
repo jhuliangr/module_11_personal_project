@@ -1,15 +1,13 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
+
+import { Button } from "#shared/components";
 
 export const MainMenu: React.FC = () => {
   return (
     <View style={styles.container}>
       <Text>Interesting surface app</Text>
-      <TouchableOpacity style={styles.button}>
-        <Text>Go to playground</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button}>
-        <Text>Settings</Text>
-      </TouchableOpacity>
+      <Button text="Go to playground" />
+      <Button text="Settings" />
     </View>
   );
 };
@@ -20,9 +18,5 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-  },
-  button: {
-    borderRadius: 10,
-    backgroundColor: "gray",
   },
 });

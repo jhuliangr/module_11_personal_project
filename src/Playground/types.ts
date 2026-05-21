@@ -1,0 +1,20 @@
+import { type DerivedValue } from "react-native-reanimated";
+
+export type Point = { x: number; y: number };
+
+export type ParticleInit = {
+  vx: Float32Array;
+  vy: Float32Array;
+  x: Float32Array;
+  y: Float32Array;
+  cosPhX: Float32Array;
+  sinPhX: Float32Array;
+  cosPhY: Float32Array;
+  sinPhY: Float32Array;
+  colorIndex: Int8Array;
+};
+
+export type ParticleLayer = {
+  color: string;
+  points: DerivedValue<Point[]>;
+};
