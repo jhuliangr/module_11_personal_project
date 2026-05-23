@@ -1,6 +1,6 @@
 import { StyleSheet, View } from "react-native";
 
-import { Playground } from "./Playground";
+import { Playground } from "./shared/components/Playground";
 
 export const App: React.FC = () => {
   return (

@@ -1,6 +1,6 @@
 import { Stack } from "expo-router";
 
-import { MainMenu } from "../../MainMenu";
+import { MainMenu } from "#shared/components/MainMenu";
 
 const App: React.FC = () => {
   return (

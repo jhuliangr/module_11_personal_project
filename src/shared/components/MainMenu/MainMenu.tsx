@@ -2,7 +2,7 @@ import { Link } from "expo-router";
 
 import { StyleSheet, Text, View } from "react-native";
 
-import { Button } from "#shared/components";
+import { Button } from "#shared/components/Button";
 
 export const MainMenu: React.FC = () => {
   return (

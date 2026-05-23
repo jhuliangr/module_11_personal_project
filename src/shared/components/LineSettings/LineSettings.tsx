@@ -3,28 +3,12 @@ import { StyleSheet, Text, View } from "react-native";
 
 import { useSettingsStore } from "#shared/stores";
 
-export const Settings: React.FC = () => {
-  const amountOfPoints = useSettingsStore((state) => state.amountOfPoints);
-  const setAmountOfPoints = useSettingsStore(
-    (state) => state.setAmountOfPoints,
-  );
+export const LineSettings: React.FC = () => {
   const strokeWidth = useSettingsStore((state) => state.strokeWidth);
   const setStrokeWidth = useSettingsStore((state) => state.setStrokeWidth);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Settings</Text>
-
-      <Text style={styles.label}>Amount of points: {amountOfPoints}</Text>
-      <Slider
-        style={styles.slider}
-        minimumValue={5}
-        maximumValue={1000}
-        step={1}
-        value={amountOfPoints}
-        onValueChange={setAmountOfPoints}
-      />
-
       <Text style={styles.label}>
         Line width: {strokeWidth.toFixed(1)}
         {strokeWidth > 1
@@ -35,23 +19,20 @@ export const Settings: React.FC = () => {
         style={styles.slider}
         minimumValue={1}
         maximumValue={12}
-        step={0.5}
+        step={0.2}
         value={strokeWidth}
         onValueChange={setStrokeWidth}
       />
+      <Text style={styles.hint}>
+        Widths above 1 switch the surface to a 3D band.
+      </Text>
     </View>
   );
 };
-
 const styles = StyleSheet.create({
   container: {
     width: "100%",
     padding: 16,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "700",
-    marginBottom: 12,
   },
   label: {
     marginTop: 12,
@@ -60,5 +41,10 @@ const styles = StyleSheet.create({
   slider: {
     width: "100%",
     height: 40,
+  },
+  hint: {
+    marginTop: 8,
+    fontSize: 12,
+    color: "#666",
   },
 });

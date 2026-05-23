@@ -3,6 +3,10 @@
     "name": "interesting_surface",
     "slug": "interesting_surface",
     "version": "1.0.0",
+    "scheme": "com.interesting_surface",
+    "experiments": {
+      "typedRoutes": true
+    },
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",

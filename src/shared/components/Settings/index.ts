@@ -1,0 +1,1 @@
+export { PointsSettings } from "./Settings";
