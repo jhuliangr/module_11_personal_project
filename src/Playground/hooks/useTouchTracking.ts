@@ -6,7 +6,7 @@ import {
 } from "react-native-gesture-handler";
 import { type SharedValue, useSharedValue } from "react-native-reanimated";
 
-import { MAX_TOUCHES } from "../constants";
+import { MAX_TOUCHES } from "#shared/constants";
 
 type UseTouchTrackingResult = {
   touchXs: SharedValue<Float32Array>;

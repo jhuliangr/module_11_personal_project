@@ -2,7 +2,7 @@
   "name": "interesting_surface",
   "version": "1.0.0",
   "type": "module",
-  "main": "src/index.ts",
+  "main": "expo-router/entry",
   "imports": {
     "#shared/*": "./src/shared/*/index.ts"
   },

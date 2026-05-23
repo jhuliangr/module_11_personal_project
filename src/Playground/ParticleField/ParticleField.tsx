@@ -1,9 +1,8 @@
-import { Canvas, Points } from "@shopify/react-native-skia";
+import { Canvas, Path } from "@shopify/react-native-skia";
 import { StyleSheet } from "react-native";
 
-import { PARTICLE_STROKE_WIDTH } from "../constants";
-
-import { type ParticleLayer } from "../types";
+import { PARTICLE_STROKE_WIDTH } from "#shared/constants";
+import { type ParticleLayer } from "#shared/types";
 
 type ParticleFieldProps = {
   layers: ParticleLayer[];
@@ -12,13 +11,14 @@ type ParticleFieldProps = {
 export const ParticleField: React.FC<ParticleFieldProps> = ({ layers }) => (
   <Canvas style={styles.canvas}>
     {layers.map((layer) => (
-      <Points
+      <Path
         key={layer.color}
-        points={layer.points}
-        mode="points"
+        path={layer.path}
         color={layer.color}
         style="stroke"
         strokeWidth={PARTICLE_STROKE_WIDTH}
+        strokeCap="round"
+        strokeJoin="round"
       />
     ))}
   </Canvas>
