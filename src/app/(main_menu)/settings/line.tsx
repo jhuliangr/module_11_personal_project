@@ -1,7 +1,7 @@
-import { LineSettings } from "#shared/components";
+import { LineSettings } from "#shared/settings";
 
-const LinePage: React.FC = () => {
+const App: React.FC = () => {
   return <LineSettings />;
 };
 
-export default LinePage;
+export default App;

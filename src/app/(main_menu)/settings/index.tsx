@@ -1,6 +1,7 @@
-import { PointsSettings } from "#shared/components";
+import { PointsSettings } from "#shared/settings";
 
-const PointsPage: React.FC = () => {
+const App: React.FC = () => {
   return <PointsSettings />;
 };
-export default PointsPage;
+
+export default App;

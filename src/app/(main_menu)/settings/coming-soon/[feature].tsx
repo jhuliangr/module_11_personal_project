@@ -1,9 +1,10 @@
 import { useLocalSearchParams } from "expo-router";
 
-import { ComingSoonDetail } from "#shared/components/ComingSoon";
+import { ComingSoonDetail } from "#shared/coming-soon";
 
-const ComingSoonFeaturePage: React.FC = () => {
+const App: React.FC = () => {
   const { feature } = useLocalSearchParams<{ feature: string }>();
   return <ComingSoonDetail slug={feature} />;
 };
-export default ComingSoonFeaturePage;
+
+export default App;

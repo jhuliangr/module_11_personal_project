@@ -1,6 +1,7 @@
-import { ComingSoonList } from "#shared/components/ComingSoon";
+import { ComingSoonList } from "#shared/coming-soon";
 
-const ComingSoonIndexPage: React.FC = () => {
+const App: React.FC = () => {
   return <ComingSoonList />;
 };
-export default ComingSoonIndexPage;
+
+export default App;

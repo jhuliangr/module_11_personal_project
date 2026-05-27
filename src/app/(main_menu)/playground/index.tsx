@@ -1,8 +1,8 @@
 import { Stack } from "expo-router";
 
-import { Playground } from "#shared/components/Playground";
+import { Playground } from "#shared/playground";
 
-const PlaygroundPage: React.FC = () => {
+const App: React.FC = () => {
   return (
     <>
       <Stack.Screen
@@ -16,4 +16,5 @@ const PlaygroundPage: React.FC = () => {
     </>
   );
 };
-export default PlaygroundPage;
+
+export default App;
