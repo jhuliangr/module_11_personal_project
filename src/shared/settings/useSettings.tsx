@@ -6,16 +6,19 @@ const STORAGE_KEY = "settings";
 type Settings = {
   amountOfPoints: number;
   strokeWidth: number;
+  motion: boolean;
 };
 
 const DEFAULTS: Settings = {
   amountOfPoints: 1000,
   strokeWidth: 1.2,
+  motion: true
 };
 
 type SettingsContextValue = Settings & {
   setAmountOfPoints: (n: number) => void;
   setStrokeWidth: (n: number) => void;
+  setMotion: (n: boolean) => void;
 };
 
 const SettingsContext = createContext<SettingsContextValue | null>(null);
@@ -47,6 +50,8 @@ export const SettingsProvider: React.FC<{ children: React.ReactNode }> = ({
     setAmountOfPoints: (n) => update({ amountOfPoints: n }),
     strokeWidth: settings.strokeWidth,
     setStrokeWidth: (n) => update({ strokeWidth: n }),
+    motion: settings.motion,
+    setMotion: (n) => update({ motion: n }),
   };
 
   return (

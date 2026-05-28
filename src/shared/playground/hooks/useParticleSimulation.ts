@@ -5,9 +5,12 @@ import {
   useFrameCallback,
 } from "react-native-reanimated";
 
+import { type Tilt } from "#shared/sensors";
+
 import {
   COLORS,
   MAX_SPEED,
+  TILT_FORCE,
   TRAIL_LENGTH,
   WANDER_AMP,
   WANDER_FREQ_X,
@@ -35,6 +38,7 @@ type UseParticleSimulationArgs = {
   touchXs: SharedValue<Float32Array>;
   touchYs: SharedValue<Float32Array>;
   touchCount: SharedValue<number>;
+  tilt: SharedValue<Tilt>;
 };
 
 export const useParticleSimulation = ({
@@ -44,6 +48,7 @@ export const useParticleSimulation = ({
   touchXs,
   touchYs,
   touchCount,
+  tilt,
 }: UseParticleSimulationArgs): ParticleLayer[] => {
   const initial = useMemo(
     () => buildInit(count, width, height),
@@ -88,6 +93,8 @@ export const useParticleSimulation = ({
     const maxSpeedSq = MAX_SPEED * MAX_SPEED;
     const wanderAmpDt = WANDER_AMP * dt;
     const galaxyTwist = t * 0.4;
+    const tiltDx = tilt.value.x * TILT_FORCE * dt;
+    const tiltDy = tilt.value.y * TILT_FORCE * dt;
 
     const geom = makeTouchGeometryScratch();
     computeTouchGeometry(geom, tc, xs, ys, t);
@@ -106,8 +113,8 @@ export const useParticleSimulation = ({
 
       const wx = cosTx * cpx[i] - sinTx * spx[i];
       const wy = sinTy * cpy[i] + cosTy * spy[i];
-      velocity.x += wx * wanderAmpDt;
-      velocity.y += wy * wanderAmpDt;
+      velocity.x += wx * wanderAmpDt + tiltDx;
+      velocity.y += wy * wanderAmpDt + tiltDy;
 
       if (hasTouch) {
         computeParticleTarget(

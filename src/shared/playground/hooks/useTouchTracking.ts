@@ -5,6 +5,9 @@ import {
   type GestureType,
 } from "react-native-gesture-handler";
 import { type SharedValue, useSharedValue } from "react-native-reanimated";
+import { scheduleOnRN } from "react-native-worklets";
+
+import { hapticImpact } from "#shared/haptics";
 
 import { MAX_TOUCHES } from "../constants";
 
@@ -33,6 +36,7 @@ export const useTouchTracking = (): UseTouchTrackingResult => {
             ys[i] = e.allTouches[i].y;
           }
           touchCount.value = count;
+          scheduleOnRN(hapticImpact);
         })
         .onTouchesMove((e) => {
           const xs = touchXs.value;

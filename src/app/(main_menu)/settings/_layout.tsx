@@ -59,6 +59,14 @@ const SettingsLayout: React.FC = () => {
           options={{ title: "Line", drawerLabel: "Line width" }}
         />
         <Drawer.Screen
+          name="notifications"
+          options={{ title: "Notifications", drawerLabel: "Notifications" }}
+        />
+        <Drawer.Screen
+          name="motion"
+          options={{ title: "Device motion", drawerLabel: "Device motion" }}
+        />
+        <Drawer.Screen
           name="coming-soon"
           options={{ title: "Coming soon", drawerLabel: "Coming soon" }}
         />

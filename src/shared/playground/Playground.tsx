@@ -4,6 +4,7 @@ import {
   GestureHandlerRootView,
 } from "react-native-gesture-handler";
 
+import { useDeviceTilt } from "#shared/sensors";
 import { useSettings } from "#shared/settings";
 
 import { useParticleSimulation, useTouchTracking } from "./hooks";
@@ -14,6 +15,7 @@ export const Playground: React.FC = () => {
   const { width, height } = useWindowDimensions();
 
   const { touchXs, touchYs, touchCount, gesture } = useTouchTracking();
+  const tilt = useDeviceTilt();
   const layers = useParticleSimulation({
     count: amountOfPoints,
     width,
@@ -21,6 +23,7 @@ export const Playground: React.FC = () => {
     touchXs,
     touchYs,
     touchCount,
+    tilt,
   });
 
   return (

@@ -17,6 +17,7 @@ export const SOFTENING = 100;
 export const WANDER_AMP = 30;
 export const WANDER_FREQ_X = 0.5;
 export const WANDER_FREQ_Y = 0.51;
+export const TILT_FORCE = 25;
 
 export const MAX_TOUCHES = 10;
 export const PATTERN_OMEGA = 0.95;
