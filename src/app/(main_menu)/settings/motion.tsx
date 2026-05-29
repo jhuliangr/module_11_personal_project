@@ -1,5 +1,6 @@
-import { StyleSheet, Switch, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 
+import ToggleField from "#design/elements/fields/Toggle";
 import Typography from "#design/elements/Typography";
 import { spacing } from "#design/foundations";
 import { useSettings } from "#shared/settings";
@@ -13,7 +14,7 @@ const App: React.FC = () => {
         <Typography style={styles.halfWidth}>
           Turn on or off the influence of device motion over the particles.
         </Typography>
-        <Switch value={motion} onValueChange={setMotion} />
+        <ToggleField value={motion} onChange={setMotion} />
       </View>
     </View>
   );
